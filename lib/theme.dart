@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hexcolor/hexcolor.dart';
 
 CustomTheme currentTheme = CustomTheme();
 
@@ -16,7 +17,7 @@ class CustomTheme with ChangeNotifier{
     return ThemeData(
       primaryColor: Colors.white,
       backgroundColor: Colors.white,
-      accentColor: Colors.yellow,
+      accentColor: HexColor("#fed702"),
       scaffoldBackgroundColor: Colors.white,
       fontFamily: 'Poppins',
       textTheme: TextTheme(
@@ -26,7 +27,8 @@ class CustomTheme with ChangeNotifier{
         bodyText2: TextStyle(color: Colors.black),
       ),
       cardTheme: CardTheme(
-        color: Colors.yellow,
+        color: HexColor("#fed702"),
+        margin: EdgeInsets.zero,
       ),
     );
   }
@@ -46,6 +48,7 @@ class CustomTheme with ChangeNotifier{
       ),
       cardTheme: CardTheme(
         color: Colors.black,
+        margin: EdgeInsets.zero,
       ),
     );
   }
