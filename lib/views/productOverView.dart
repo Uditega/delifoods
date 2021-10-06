@@ -1,40 +1,10 @@
 import 'package:delifoods/components/sideBar.dart';
 import 'package:flutter/material.dart';
-import 'package:delifoods/model/product.dart';
-import 'package:delifoods/components/productItem.dart';
+
+import 'package:delifoods/components/grid_item.dart';
 
 class ProductOverView extends StatelessWidget {
 
-  final List<Product> loadedProduct =[
-    Product(
-        id: 'p1',
-        title: 'Beef Cheesy Pizza',
-        description: 'Tasty Beef Cheesy Pizza, extra beef',
-        price: 3000.00,
-        image: 'images/BeefPizza.jpg'
-    ),
-    Product(
-        id: 'p2',
-        title: 'Chicken Sharwama',
-        description: 'Tasty chicken sharwama',
-        price: 1500.00,
-        image: 'images/ChickenSharwama.jpg'
-    ),
-    Product(
-        id: 'p3',
-        title: 'Chicken Pizza',
-        description: 'Tasty chicken Pizza',
-        price: 3500.00,
-        image: 'images/ChickenPizza.jpg'
-    ),
-    Product(
-        id: 'p4',
-        title: 'Fried Rice',
-        description: 'Tasty spiced Fried rice and Turkey',
-        price: 1900.00,
-        image: 'images/FriedRice.jpg'
-    ),
-  ];
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +18,7 @@ class ProductOverView extends StatelessWidget {
             builder: (context) => IconButton(
               icon: CircleAvatar(
                 radius: 18,
-                backgroundColor: Theme.of(context).accentColor,
+               backgroundColor: Color(0xffff8c00),
                 child: Icon(Icons.restaurant_menu_outlined,
                 size: 15, color: Colors.black,
                 ),
@@ -110,23 +80,8 @@ class ProductOverView extends StatelessWidget {
                 height: constraints.maxHeight*0.04,
               ),
               SizedBox(
-                height: constraints.maxHeight*0.67,
-                child: GridView.builder(
-                  itemCount: loadedProduct.length,
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    childAspectRatio: 0.8,
-                    crossAxisSpacing: 15,
-                    mainAxisSpacing: 15,
-                  ),
-                  itemBuilder: (ctx, i) => ProductItem(
-                      loadedProduct[i].id,
-                      loadedProduct[i].image,
-                      loadedProduct[i].title,
-                    loadedProduct[i].price,
-                    loadedProduct[i].isFavourite,
-                  ),
-                ),
+                height: constraints.maxHeight*0.64,
+                child: GridProduct(),
               ),
             ],
           ),
@@ -138,3 +93,5 @@ class ProductOverView extends StatelessWidget {
     });
   }
 }
+
+

@@ -6,7 +6,7 @@ class SideBar extends StatelessWidget {
 
     return LayoutBuilder(builder: (ctx, constraints){
       return Container(
-        width: constraints.maxWidth*0.6,
+        // width: constraints.maxWidth*0.6,
         color: Theme.of(context).accentColor,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:hexcolor/hexcolor.dart';
 
 CustomTheme currentTheme = CustomTheme();
 
@@ -17,7 +16,17 @@ class CustomTheme with ChangeNotifier{
     return ThemeData(
       primaryColor: Colors.white,
       backgroundColor: Colors.white,
-      accentColor: HexColor("#fed702"),
+      appBarTheme: AppBarTheme(
+        backgroundColor: Colors.white,
+       titleTextStyle: TextStyle(
+           color: Colors.black,
+         fontSize: 15,
+         fontFamily: 'Poppins',
+       ),
+        actionsIconTheme: IconThemeData(
+          color: Colors.black,
+        ),
+      ),
       scaffoldBackgroundColor: Colors.white,
       fontFamily: 'Poppins',
       textTheme: TextTheme(
@@ -27,7 +36,7 @@ class CustomTheme with ChangeNotifier{
         bodyText2: TextStyle(color: Colors.black),
       ),
       cardTheme: CardTheme(
-        color: HexColor("#fed702"),
+        color: Color(0xffff8c00),
         margin: EdgeInsets.zero,
       ),
     );
@@ -36,8 +45,18 @@ class CustomTheme with ChangeNotifier{
   static ThemeData get darkTheme{
     return ThemeData(
       primaryColor: Colors.black54,
-      accentColor: Colors.redAccent,
       backgroundColor: Colors.black,
+      appBarTheme: AppBarTheme(
+        backgroundColor: Colors.black87,
+        titleTextStyle: TextStyle(
+            color: Colors.white,
+          fontSize: 15,
+          fontFamily: 'Poppins',
+        ),
+        actionsIconTheme: IconThemeData(
+          color: Colors.white,
+        ),
+      ),
       scaffoldBackgroundColor: Colors.black,
       fontFamily: 'Poppins',
       textTheme: TextTheme(

@@ -1,73 +1,84 @@
+import 'package:delifoods/views/productDetail.dart';
 import 'package:flutter/material.dart';
-import 'package:hexcolor/hexcolor.dart';
+
+import 'package:provider/provider.dart';
+import 'package:delifoods/provider/product.dart';
 
 class ProductItem extends StatelessWidget {
 
-  final String id;
-  final String image;
-  final String title;
-  final double price;
-  bool isFavorite;
-
-  ProductItem(this.id, this.image, this.title, this.price, this.isFavorite);
 
   @override
   Widget build(BuildContext context) {
 
-   return LayoutBuilder(builder: (ctx, constraints){
-     return Container(
-       decoration: BoxDecoration(
-         color: Colors.white,
-           borderRadius: BorderRadius.circular(15),
-         boxShadow: [
-           BoxShadow(
-             color: Colors.grey.shade300,
-             blurRadius: 90,
-           ),
-         ]
-       ),
-       child: Padding(
-         padding: const EdgeInsets.fromLTRB(7, 12, 7, 12),
-         child: Column(
-           crossAxisAlignment: CrossAxisAlignment.start,
-           children: [
-             ClipRRect(
-               borderRadius: BorderRadius.circular(10),
-               child: Image.asset(image,
-               height: constraints.maxHeight*0.55,
-               width: MediaQuery.of(context).size.width,
-               fit: BoxFit.cover,
-               ),
-             ),
-             SizedBox(
-               height: constraints.maxHeight*0.04,
-             ),
-             Expanded(
-               child: Text(title,
+    final product = Provider.of<Product>(context);
+
+    return LayoutBuilder(builder: (ctx, constraints){
+      return Container(
+        decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(15),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey.shade300,
+                blurRadius: 90,
+              ),
+            ]
+        ),
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(7, 12, 7, 5),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              GestureDetector(
+                onTap: () {
+                    Navigator.of(context).pushNamed(ProductDetails.routeName, arguments: product.id);
+                },
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(10),
+                  child: Image.asset(product.image,
+                    height: constraints.maxHeight*0.55,
+                    width: MediaQuery.of(context).size.width,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: constraints.maxHeight*0.04,
+              ),
+              Text(product.title,
                 style: TextStyle(
-                    fontSize: 13,
+                  fontSize: 13,
                   fontWeight: FontWeight.w600,
                 ),
-               ),
-             ),
-             Row(
-               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-               children: [
-                 Text('NGN $price',
-                   style: TextStyle(
-                     fontSize: 11,
-                     color: HexColor("#555555")
-                   ),
-                 ),
-                 Icon(Icons.favorite_outline,
-                 size: 18,
-                 ),
-               ],
-             ),
-           ],
-         ),
-       ),
-     );
-   });
+              ),
+              SizedBox(
+                height: constraints.maxHeight*0.03,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text('NGN ${product.price}',
+                    style: TextStyle(
+                        fontSize: 11,
+                        color: Color(0xff555555),
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: (){
+                      product.toggleFavorite();
+                    },
+                    child: Icon(
+                        product.isFavourite? Icons.favorite: Icons.favorite_border,
+                    size: 18,color: Colors.red,
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      );
+    });
   }
 }
+
