@@ -6,8 +6,7 @@ class SideBar extends StatelessWidget {
 
     return LayoutBuilder(builder: (ctx, constraints){
       return Container(
-        // width: constraints.maxWidth*0.6,
-        color: Theme.of(context).accentColor,
+        color: Theme.of(context).colorScheme.secondary,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -17,7 +16,7 @@ class SideBar extends StatelessWidget {
              child: Center(
                child: CircleAvatar(
                  radius: 55,
-                 backgroundColor: Theme.of(context).accentColor,
+                 backgroundColor: Theme.of(context).colorScheme.secondary,
                  child: CircleAvatar(
                    radius: 50,
                    backgroundColor: Colors.white,

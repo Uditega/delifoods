@@ -1,4 +1,4 @@
-import 'package:delifoods/views/productDetail.dart';
+import 'package:delifoods/views/productDetails/productDetail.dart';
 import 'package:delifoods/views/productOverView.dart';
 import 'package:flutter/material.dart';
 

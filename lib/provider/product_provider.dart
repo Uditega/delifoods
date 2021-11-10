@@ -11,14 +11,16 @@ class Products with ChangeNotifier{
         description: 'Tasty Beef Cheesy Pizza, extra beef',
         price: 3000.00,
         image: 'images/BeefPizza.jpg',
+        time: '1 hour, 30 mins',
         isFavourite: false
     ),
     Product(
         id: 'p2',
         title: 'Chicken Sharwama',
-        description: 'Tasty chicken sharwama',
+        description: 'Spiced chicken sharwama, two hot dog and free soft drink',
         price: 1500.00,
         image: 'images/ChickenSharwama.jpg',
+        time: '20 - 30 mins',
         isFavourite: false
     ),
     Product(
@@ -27,6 +29,7 @@ class Products with ChangeNotifier{
         description: 'Tasty chicken Pizza',
         price: 3500.00,
         image: 'images/ChickenPizza.jpg',
+        time: '1 hour, 50 mins',
         isFavourite: false
     ),
     Product(
@@ -35,6 +38,7 @@ class Products with ChangeNotifier{
         description: 'Tasty spiced Fried rice and Turkey',
         price: 1900.00,
         image: 'images/FriedRice.jpg',
+        time: '1 hour, 30 mins',
         isFavourite: false
     ),
   ];

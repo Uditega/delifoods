@@ -1,5 +1,5 @@
 import 'package:delifoods/theme.dart';
-import 'package:delifoods/views/productDetail.dart';
+import 'package:delifoods/views/productDetails/productDetail.dart';
 import 'package:flutter/material.dart';
 import 'package:delifoods/generate_route.dart';
 
@@ -29,6 +29,8 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
+    final ThemeData theme = ThemeData();
+
     return ChangeNotifierProvider(
       create: (ctx) => Products(),
       child: MaterialApp(

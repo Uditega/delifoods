@@ -1,4 +1,4 @@
-import 'package:delifoods/views/productDetail.dart';
+import 'package:delifoods/views/productDetails/productDetail.dart';
 import 'package:flutter/material.dart';
 
 import 'package:provider/provider.dart';
@@ -47,8 +47,9 @@ class ProductItem extends StatelessWidget {
               ),
               Text(product.title,
                 style: TextStyle(
-                  fontSize: 13,
+                  fontSize: 12.5,
                   fontWeight: FontWeight.w600,
+                  fontFamily: 'Poppins',
                 ),
               ),
               SizedBox(
@@ -61,6 +62,7 @@ class ProductItem extends StatelessWidget {
                     style: TextStyle(
                         fontSize: 11,
                         color: Color(0xff555555),
+                      fontFamily: 'Poppins',
                     ),
                   ),
                   GestureDetector(

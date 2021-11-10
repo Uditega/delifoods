@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 CustomTheme currentTheme = CustomTheme();
+final ThemeData theme = ThemeData();
 
 class CustomTheme with ChangeNotifier{
 
@@ -12,10 +13,12 @@ class CustomTheme with ChangeNotifier{
     notifyListeners();
   }
 
+
   static ThemeData get lightTheme{
-    return ThemeData(
+    return theme.copyWith(
       primaryColor: Colors.white,
       backgroundColor: Colors.white,
+      colorScheme: theme.colorScheme.copyWith(secondary: Color(0xffcc9510)),
       appBarTheme: AppBarTheme(
         backgroundColor: Colors.white,
        titleTextStyle: TextStyle(
@@ -24,28 +27,40 @@ class CustomTheme with ChangeNotifier{
          fontFamily: 'Poppins',
        ),
         actionsIconTheme: IconThemeData(
-          color: Colors.black,
+          color: Color(0xff131313),
         ),
       ),
       scaffoldBackgroundColor: Colors.white,
-      fontFamily: 'Poppins',
       textTheme: TextTheme(
-        headline1: TextStyle(color: Colors.black),
-        headline2: TextStyle(color: Colors.black),
-        bodyText1: TextStyle(color: Colors.black),
-        bodyText2: TextStyle(color: Colors.black),
+        headline1: TextStyle(color: Color(0xff131313), ),
+        headline2: TextStyle(color: Color(0xff131313),),
+        bodyText1: TextStyle(color: Color(0xff131313),),
+        bodyText2: TextStyle(color: Color(0xff131313),),
       ),
       cardTheme: CardTheme(
-        color: Color(0xffff8c00),
+        color: Color(0xffcc9510),
         margin: EdgeInsets.zero,
+      ),
+      popupMenuTheme: PopupMenuThemeData(
+        elevation: 3,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(5)
+        ),
+        color: Colors.white,
+        textStyle: TextStyle(
+          color: Color(0xff131313),
+          fontFamily: 'Poppins',
+          fontSize: 12
+        ),
       ),
     );
   }
 
   static ThemeData get darkTheme{
-    return ThemeData(
+    return theme.copyWith(
       primaryColor: Colors.black54,
       backgroundColor: Colors.black,
+      colorScheme: theme.colorScheme.copyWith(secondary: Colors.black54),
       appBarTheme: AppBarTheme(
         backgroundColor: Colors.black87,
         titleTextStyle: TextStyle(
@@ -58,7 +73,6 @@ class CustomTheme with ChangeNotifier{
         ),
       ),
       scaffoldBackgroundColor: Colors.black,
-      fontFamily: 'Poppins',
       textTheme: TextTheme(
         headline1: TextStyle(color: Colors.white),
         headline2: TextStyle(color: Colors.white),
@@ -68,6 +82,17 @@ class CustomTheme with ChangeNotifier{
       cardTheme: CardTheme(
         color: Colors.black,
         margin: EdgeInsets.zero,
+      ),
+      popupMenuTheme: PopupMenuThemeData(
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(5)
+        ),
+        color: Colors.black54,
+        textStyle: TextStyle(
+            color: Colors.white,
+            fontFamily: 'Poppins',
+            fontSize: 12
+        ),
       ),
     );
   }
